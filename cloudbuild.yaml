@@ -9,7 +9,6 @@ steps:
   
 # Deploy changes to kubernetes config files - Stage 3
 - name: 'gcr.io/cloud-builders/kubectl'
-  args: ["apply", "-f", "k8s/"]
   env:
   - 'CLOUDSDK_COMPUTE_ZONE=${_ZONE}'
   - 'CLOUDSDK_CONTAINER_CLUSTER=${_GKE_CLUSTER}'

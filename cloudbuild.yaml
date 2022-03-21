@@ -26,7 +26,7 @@ substitutions:
     
     #Repository Specific configuration. DevOps can change this settings
     _DEPLOYMENTNAME: hello-world-service
-    _CONTAINERNAME: hello   
+    _CONTAINERNAME: hello-world-service   
     _REPO_NAME: repo4
     
     # Developers ONLY change

@@ -1,0 +1,30 @@
+version: '1.0'
+stages:
+  - clone
+  - build   
+  - bump-build-number
+steps:
+  main_clone:
+    title: Cloning main repository...
+    stage: clone
+    type: git-clone
+    repo: 'cgdevopsgcp/repo4'
+    revision: master
+    git: github 
+  BuildImage:
+    title: Building Docker Image
+    type: build
+    image_name: codefreshplugins/bump-build-number 
+    working_directory: $"{{clone}}"
+    dockerfile: "Dockerfile"
+    tag: develop
+  bump-build-number:
+    title: Bump Build Version Number
+    type: bump-build-number
+    image: codefreshplugins/bump-build-number
+    environment:
+        - ANNOTATION_NAME=${{CF_BRANCH}}
+    commands:
+        - echo $CF_BUILD_ID
+        - echo $CF_BUILD_NUMBER
+  

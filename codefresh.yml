@@ -9,7 +9,7 @@ steps:
     stage: clone
     type: git-clone
     repo: 'cgdevopsgcp/repo4'
-    revision: master
+    revision: main
     git: github 
   BuildImage:
     title: Building Docker Image

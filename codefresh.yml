@@ -9,13 +9,13 @@ steps:
     stage: clone
     type: git-clone
     repo: 'cgdevopsgcp/repo4'
-    revision: main
+    revision: "${{CF_BRANCH}}"
     git: github 
   BuildImage:
     title: Building Docker Image
     type: build
     image_name: codefreshplugins/bump-build-number 
-    working_directory: $"{{clone}}"
+    working_directory: "${{clone}}"
     dockerfile: "Dockerfile"
     tag: develop
   bump-build-number:
